@@ -1,4 +1,6 @@
-/* Add a black background color to the top navigation */
+@media (max-width: 800px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    /* Add a black background color to the top navigation */
 .topnav {
     background-color: #1a1a1a;
     overflow: hidden;
@@ -24,4 +26,35 @@
   .topnav a.active {
     background-color: red;
     color: white;
+  }
+  }
+@media (min-width: 800px) {
+    /* CSS that should be displayed if width is equal to or more than 800px goes here */
+    /* Add a black background color to the top navigation */
+.topnav {
+    background-color: #1a1a1a;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: orange;
+    color: white;
+  }
   }
