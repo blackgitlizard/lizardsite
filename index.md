@@ -1,10 +1,19 @@
-.
-+-- sub-directory
-|   +-- index.md    (title: Suby the Sub)
-|   +-- page2.md    (title: Suby the Second)
-|   +-- three.md    (title: Suby the Third)
-+-- index.md        (title: Home)
-+-- picture.png
-# BlackLizard
-
-hallo, ik ben kim
+{{ define "main" }}
+  <main aria-role="main">
+    <header class="homepage-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+        <span class="subtitle">{{ . }}</span>
+      {{ end }}
+    </header>
+    <div class="homepage-content">
+      <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+      {{ .Content }}
+    </div>
+    <div>
+      {{ range first 10 .Site.RegularPages }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </div>
+  </main>
+{{ end }}
