@@ -29,3 +29,42 @@
   color: white;
   border-radius: 25px;
 }
+
+/* Responsive layout for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    display: block;
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 18px;
+  }
+
+  .topnav {
+    border-radius: 0;
+  }
+}
+
+/* Responsive layout for screens between 600px and 900px */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .topnav a {
+    padding: 16px 20px;
+    font-size: 19px;
+  }
+
+  .topnav {
+    border-radius: 15px;
+  }
+}
+
+/* Responsive layout for screens larger than 900px */
+@media screen and (min-width: 900px) {
+  .topnav a {
+    padding: 17px 22px;
+    font-size: 20px;
+  }
+
+  .topnav {
+    border-radius: 25px;
+  }
+}
