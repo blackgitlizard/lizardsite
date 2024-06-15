@@ -42,6 +42,7 @@ a.one:link {color: rgb(255, 255, 255);}
   font-size: smaller;
 }
 .inline-elements a,
+.inline-elements img,
 .inline-elements p {
     display: inline;
     margin: 0;
