@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franse Werkwoorden Leren</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            background: #f4f4f4;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+        }
+        .verb, .conjugation {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Leer Franse Werkwoorden</h1>
+        <button onclick="loadVerbs()">Toon Werkwoorden</button>
+        <ul id="verbList"></ul>
+    </div>
+    <script>
+        function loadVerbs() {
+            fetch('verbs.txt')
+                .then(response => response.json())
+                .then(data => {
+                    const verbList = document.getElementById('verbList');
+                    verbList.innerHTML = '';
+                    for (const [verb, conjugations] of Object.entries(data)) {
+                        const verbItem = document.createElement('li');
+                        verbItem.classList.add('verb');
+                        verbItem.textContent = verb;
+                        
+                        const conjugationList = document.createElement('ul');
+                        conjugations.forEach(conjugation => {
+                            const conjugationItem = document.createElement('li');
+                            conjugationItem.classList.add('conjugation');
+                            conjugationItem.textContent = conjugation;
+                            conjugationList.appendChild(conjugationItem);
+                        });
+                        
+                        verbItem.appendChild(conjugationList);
+                        verbList.appendChild(verbItem);
+                    }
+                });
+        }
+    </script>
+</body>
+</html>

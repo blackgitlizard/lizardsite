@@ -1,0 +1,12 @@
+{
+    "parler": ["parle", "parles", "parle", "parlons", "parlez", "parlent"],
+    "manger": ["mange", "manges", "mange", "mangeons", "mangez", "mangent"],
+    "être": ["suis", "es", "est", "sommes", "êtes", "sont"],
+    "avoir": ["ai", "as", "a", "avons", "avez", "ont"],
+    "aller": ["vais", "vas", "va", "allons", "allez", "vont"],
+    "faire": ["fais", "fais", "fait", "faisons", "faites", "font"],
+    "prendre": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
+    "venir": ["viens", "viens", "vient", "venons", "venez", "viennent"],
+    "voir": ["vois", "vois", "voit", "voyons", "voyez", "voient"],
+    "vouloir": ["veux", "veux", "veut", "voulons", "voulez", "veulent"]
+}
