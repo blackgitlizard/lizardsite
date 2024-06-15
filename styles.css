@@ -26,6 +26,8 @@ h1 {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
+    max-height: 200px; /* Max hoogte voor scrollen */
+    overflow-y: auto; /* Scrollen toevoegen */
 }
 
 .select-box h2 {
@@ -37,6 +39,7 @@ h1 {
 .select-box label {
     display: block;
     margin-bottom: 8px;
+    white-space: nowrap; /* Voorkomt dat lange werkwoorden doorlopen */
 }
 
 button {
@@ -94,56 +97,20 @@ button:hover {
     display: none;
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    .select-box {
-        padding: 10px;
-    }
-
-    .prompt {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #userInput {
-        width: calc(100% - 32px);
-    }
-}
-.select-box {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    max-height: 200px; /* Max hoogte voor scrollen */
-    overflow-y: auto; /* Scrollen toevoegen */
+.verb-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.select-box label {
-    display: block;
-    margin-bottom: 8px;
-    white-space: nowrap; /* Voorkomt dat lange werkwoorden doorlopen */
+.verb-select label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-#userInput {
-    padding: 12px 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: calc(100% - 42px);
-    margin-bottom: 10px;
-}
-
-.result {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.hidden {
-    display: none;
+.verb-select input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 @media (max-width: 600px) {
