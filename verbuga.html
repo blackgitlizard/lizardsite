@@ -54,13 +54,15 @@
         .hidden {
             display: none;
         }
-        select {
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .verb-select {
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
             margin-bottom: 20px;
+        }
+        .verb-select label {
+            display: block;
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -68,9 +70,9 @@
     <div class="container">
         <h1>Leer Franse Werkwoorden</h1>
         <div id="menu">
-            <select id="verbSelect" multiple>
-                <!-- Opties worden dynamisch geladen -->
-            </select>
+            <div id="verbSelect" class="verb-select">
+                <!-- Checkboxes worden dynamisch geladen -->
+            </div>
             <button onclick="confirmSelection()">Bevestig Selectie</button>
         </div>
         <div id="exercise" class="verb-container hidden">
@@ -103,16 +105,19 @@
         function populateVerbSelect() {
             const verbSelect = document.getElementById('verbSelect');
             for (const verb in verbs) {
-                const option = document.createElement('option');
-                option.value = verb;
-                option.textContent = verb;
-                verbSelect.appendChild(option);
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = verb;
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(verb));
+                verbSelect.appendChild(label);
             }
         }
 
         function confirmSelection() {
-            const verbSelect = document.getElementById('verbSelect');
-            selectedVerbs = Array.from(verbSelect.selectedOptions).map(option => option.value);
+            const checkboxes = document.querySelectorAll('#verbSelect input[type="checkbox"]:checked');
+            selectedVerbs = Array.from(checkboxes).map(checkbox => checkbox.value);
             if (selectedVerbs.length > 0) {
                 document.getElementById('menu').classList.add('hidden');
                 document.getElementById('exercise').classList.remove('hidden');
