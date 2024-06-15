@@ -48,6 +48,8 @@ a.one:link {color: rgb(255, 255, 255);}
     margin: 0;
 }
 
+.center {text-align: center;}
+
 /* Responsive layout for screens smaller than 600px */
 @media screen and (max-width: 600px) {
   .topnav a {
