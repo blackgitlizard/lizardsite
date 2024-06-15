@@ -41,7 +41,8 @@ a.one:link {font-size: 34px;}
   text-align: center;
   font-size: smaller;
 }
-.inline {
+.inline-elements a,
+.inline-elements p {
     display: inline;
     margin: 0;
 }
