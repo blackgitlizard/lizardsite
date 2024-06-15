@@ -1,12 +1,17 @@
 {
-    "parler": ["parle", "parles", "parle", "parlons", "parlez", "parlent"],
-    "manger": ["mange", "manges", "mange", "mangeons", "mangez", "mangent"],
-    "être": ["suis", "es", "est", "sommes", "êtes", "sont"],
-    "avoir": ["ai", "as", "a", "avons", "avez", "ont"],
-    "aller": ["vais", "vas", "va", "allons", "allez", "vont"],
-    "faire": ["fais", "fais", "fait", "faisons", "faites", "font"],
-    "prendre": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
-    "venir": ["viens", "viens", "vient", "venons", "venez", "viennent"],
-    "voir": ["vois", "vois", "voit", "voyons", "voyez", "voient"],
-    "vouloir": ["veux", "veux", "veut", "voulons", "voulez", "veulent"]
+    "parler": {
+        "present": ["parle", "parles", "parle", "parlons", "parlez", "parlent"],
+        "passe_compose": ["ai parlé", "as parlé", "a parlé", "avons parlé", "avez parlé", "ont parlé"],
+        "futur_proche": ["vais parler", "vas parler", "va parler", "allons parler", "allez parler", "vont parler"]
+    },
+    "finir": {
+        "present": ["finis", "finis", "finit", "finissons", "finissez", "finissent"],
+        "passe_compose": ["ai fini", "as fini", "a fini", "avons fini", "avez fini", "ont fini"],
+        "futur_proche": ["vais finir", "vas finir", "va finir", "allons finir", "allez finir", "vont finir"]
+    },
+    "vendre": {
+        "present": ["vends", "vends", "vend", "vendons", "vendez", "vendent"],
+        "passe_compose": ["ai vendu", "as vendu", "a vendu", "avons vendu", "avez vendu", "ont vendu"],
+        "futur_proche": ["vais vendre", "vas vendre", "va vendre", "allons vendre", "allez vendre", "vont vendre"]
+    }
 }

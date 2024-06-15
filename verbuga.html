@@ -68,7 +68,7 @@
         .hidden {
             display: none;
         }
-        .verb-select {
+        .verb-select, .tense-select {
             text-align: left;
             max-height: 300px;
             overflow-y: auto;
@@ -78,12 +78,12 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
-        .verb-select label {
+        .verb-select label, .tense-select label {
             display: block;
             margin: 5px 0;
             color: #666;
         }
-        .verb-select input[type="checkbox"] {
+        .verb-select input[type="checkbox"], .tense-select input[type="checkbox"] {
             margin-right: 10px;
         }
     </style>
@@ -93,7 +93,13 @@
         <h1>Leer Franse Werkwoorden</h1>
         <div id="menu">
             <div id="verbSelect" class="verb-select">
-                <!-- Checkboxes worden dynamisch geladen -->
+                <!-- Werkwoord checkboxes worden dynamisch geladen -->
+            </div>
+            <div id="tenseSelect" class="tense-select">
+                <!-- Tijd checkboxes -->
+                <label><input type="checkbox" value="present"> Present</label>
+                <label><input type="checkbox" value="passe_compose"> Passé Composé</label>
+                <label><input type="checkbox" value="futur_proche"> Futur Proche</label>
             </div>
             <button onclick="confirmSelection()">Bevestig Selectie</button>
         </div>
@@ -110,7 +116,9 @@
     <script>
         let verbs = {};
         let selectedVerbs = [];
+        let selectedTenses = [];
         let currentVerb = '';
+        let currentTense = '';
         let currentTenseIndex = 0;
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -141,30 +149,37 @@
         }
 
         function confirmSelection() {
-            const checkboxes = document.querySelectorAll('#verbSelect input[type="checkbox"]:checked');
-            selectedVerbs = Array.from(checkboxes).map(checkbox => checkbox.value);
-            if (selectedVerbs.length > 0) {
+            const verbCheckboxes = document.querySelectorAll('#verbSelect input[type="checkbox"]:checked');
+            selectedVerbs = Array.from(verbCheckboxes).map(checkbox => checkbox.value);
+
+            const tenseCheckboxes = document.querySelectorAll('#tenseSelect input[type="checkbox"]:checked');
+            selectedTenses = Array.from(tenseCheckboxes).map(checkbox => checkbox.value);
+
+            if (selectedVerbs.length > 0 && selectedTenses.length > 0) {
                 document.getElementById('menu').classList.add('hidden');
                 document.getElementById('exercise').classList.remove('hidden');
                 setNewVerb();
             } else {
-                alert('Selecteer alstublieft minstens één werkwoord.');
+                alert('Selecteer alstublieft minstens één werkwoord en één tijd.');
             }
         }
 
         function setNewVerb() {
             currentVerb = selectedVerbs[Math.floor(Math.random() * selectedVerbs.length)];
+            currentTense = selectedTenses[Math.floor(Math.random() * selectedTenses.length)];
             currentTenseIndex = Math.floor(Math.random() * 6);
+
             const tenses = ["ik", "jij", "hij/zij/het", "wij", "jullie", "zij"];
             document.getElementById('verbPrompt').textContent = currentVerb;
-            document.getElementById('tensePrompt').textContent = tenses[currentTenseIndex];
+            document.getElementById('tensePrompt').textContent = `${currentTense} (${tenses[currentTenseIndex]})`;
+
             document.getElementById('userInput').value = '';
             document.getElementById('result').textContent = '';
         }
 
         function checkAnswer() {
             const userInput = document.getElementById('userInput').value.trim();
-            const correctAnswer = verbs[currentVerb][currentTenseIndex];
+            const correctAnswer = verbs[currentVerb][currentTense][currentTenseIndex];
             const result = document.getElementById('result');
             if (userInput === correctAnswer) {
                 result.textContent = 'Correct!';
