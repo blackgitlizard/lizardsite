@@ -43,6 +43,11 @@
   .topnav {
     border-radius: 0;
   }
+  .inline-elements h1,
+  .inline-elements a {
+      display: inline;
+      margin: 0;
+  }
 }
 
 /* Responsive layout for screens between 600px and 900px */
@@ -55,6 +60,11 @@
   .topnav {
     border-radius: 15px;
   }
+  .inline-elements h1,
+  .inline-elements a {
+      display: inline;
+      margin: 0;
+  }
 }
 
 /* Responsive layout for screens larger than 900px */
@@ -66,5 +76,10 @@
 
   .topnav {
     border-radius: 25px;
+  }
+  .inline-elements h1,
+  .inline-elements a {
+      display: inline;
+      margin: 0;
   }
 }
