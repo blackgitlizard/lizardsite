@@ -40,6 +40,19 @@
         .verb-container {
             margin-top: 20px;
         }
+        .prompt {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .prompt div {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 45%;
+            text-align: center;
+        }
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -85,7 +98,10 @@
             <button onclick="confirmSelection()">Bevestig Selectie</button>
         </div>
         <div id="exercise" class="verb-container hidden">
-            <p id="verbPrompt"></p>
+            <div class="prompt">
+                <div id="verbPrompt">Werkwoord</div>
+                <div id="tensePrompt">Tijd</div>
+            </div>
             <input type="text" id="userInput" placeholder="Typ de vervoeging">
             <button onclick="checkAnswer()">Controleer Antwoord</button>
             <p id="result" class="result"></p>
@@ -140,7 +156,8 @@
             currentVerb = selectedVerbs[Math.floor(Math.random() * selectedVerbs.length)];
             currentTenseIndex = Math.floor(Math.random() * 6);
             const tenses = ["ik", "jij", "hij/zij/het", "wij", "jullie", "zij"];
-            document.getElementById('verbPrompt').textContent = `Vervoeg "${currentVerb}" voor "${tenses[currentTenseIndex]}"`;
+            document.getElementById('verbPrompt').textContent = currentVerb;
+            document.getElementById('tensePrompt').textContent = tenses[currentTenseIndex];
             document.getElementById('userInput').value = '';
             document.getElementById('result').textContent = '';
         }
