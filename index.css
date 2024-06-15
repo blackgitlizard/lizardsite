@@ -30,7 +30,7 @@
   border-radius: 25px;
 }
 
-a.one:link {font-size: 40px;}
+a.one:link {font-size: 34px;}
 
 /* Responsive layout for screens smaller than 600px */
 @media screen and (max-width: 600px) {
