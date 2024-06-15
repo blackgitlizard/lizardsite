@@ -38,6 +38,7 @@ a.one:link {font-size: 34px;}
   width: 100%;
   background-color: #333333;
   color: rgb(255, 255, 255);
+  text-align: center;
 }
 
 /* Responsive layout for screens smaller than 600px */
