@@ -14,51 +14,67 @@
             max-width: 600px;
             margin: 0 auto;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .verb-container, .result {
+            margin-top: 20px;
         }
-        li {
-            padding: 10px;
-            background: #f4f4f4;
-            margin-bottom: 5px;
-            border: 1px solid #ddd;
-        }
-        .verb, .conjugation {
-            margin-bottom: 10px;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Leer Franse Werkwoorden</h1>
-        <button onclick="loadVerbs()">Toon Werkwoorden</button>
-        <ul id="verbList"></ul>
+        <button onclick="startExercise()">Start Oefening</button>
+        <div id="exercise" class="verb-container hidden">
+            <p id="verbPrompt"></p>
+            <input type="text" id="userInput" placeholder="Typ de vervoeging">
+            <button onclick="checkAnswer()">Controleer Antwoord</button>
+            <p id="result" class="result"></p>
+        </div>
     </div>
     <script>
+        let verbs = {};
+        let currentVerb = '';
+        let currentTenseIndex = 0;
+
         function loadVerbs() {
-            fetch('verbs.txt')
+            return fetch('verbs.json')
                 .then(response => response.json())
                 .then(data => {
-                    const verbList = document.getElementById('verbList');
-                    verbList.innerHTML = '';
-                    for (const [verb, conjugations] of Object.entries(data)) {
-                        const verbItem = document.createElement('li');
-                        verbItem.classList.add('verb');
-                        verbItem.textContent = verb;
-                        
-                        const conjugationList = document.createElement('ul');
-                        conjugations.forEach(conjugation => {
-                            const conjugationItem = document.createElement('li');
-                            conjugationItem.classList.add('conjugation');
-                            conjugationItem.textContent = conjugation;
-                            conjugationList.appendChild(conjugationItem);
-                        });
-                        
-                        verbItem.appendChild(conjugationList);
-                        verbList.appendChild(verbItem);
-                    }
+                    verbs = data;
                 });
+        }
+
+        function startExercise() {
+            document.getElementById('exercise').classList.remove('hidden');
+            loadVerbs().then(() => {
+                setNewVerb();
+            });
+        }
+
+        function setNewVerb() {
+            const verbKeys = Object.keys(verbs);
+            currentVerb = verbKeys[Math.floor(Math.random() * verbKeys.length)];
+            currentTenseIndex = Math.floor(Math.random() * 6);
+            const tenses = ["ik", "jij", "hij/zij/het", "wij", "jullie", "zij"];
+            document.getElementById('verbPrompt').textContent = `Vervoeg "${currentVerb}" voor "${tenses[currentTenseIndex]}"`;
+            document.getElementById('userInput').value = '';
+            document.getElementById('result').textContent = '';
+        }
+
+        function checkAnswer() {
+            const userInput = document.getElementById('userInput').value.trim();
+            const correctAnswer = verbs[currentVerb][currentTenseIndex];
+            const result = document.getElementById('result');
+            if (userInput === correctAnswer) {
+                result.textContent = 'Correct!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = `Fout! Het juiste antwoord is "${correctAnswer}".`;
+                result.style.color = 'red';
+            }
+            setTimeout(setNewVerb, 2000); // Wacht 2 seconden voordat een nieuwe vraag wordt getoond
         }
     </script>
 </body>
