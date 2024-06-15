@@ -54,12 +54,25 @@
         .hidden {
             display: none;
         }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Leer Franse Werkwoorden</h1>
-        <button onclick="startExercise()">Start Oefening</button>
+        <div id="menu">
+            <select id="verbSelect" multiple>
+                <!-- Opties worden dynamisch geladen -->
+            </select>
+            <button onclick="confirmSelection()">Bevestig Selectie</button>
+        </div>
         <div id="exercise" class="verb-container hidden">
             <p id="verbPrompt"></p>
             <input type="text" id="userInput" placeholder="Typ de vervoeging">
@@ -69,8 +82,15 @@
     </div>
     <script>
         let verbs = {};
+        let selectedVerbs = [];
         let currentVerb = '';
         let currentTenseIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadVerbs().then(() => {
+                populateVerbSelect();
+            });
+        });
 
         function loadVerbs() {
             return fetch('verbs.json')
@@ -80,16 +100,30 @@
                 });
         }
 
-        function startExercise() {
-            document.getElementById('exercise').classList.remove('hidden');
-            loadVerbs().then(() => {
+        function populateVerbSelect() {
+            const verbSelect = document.getElementById('verbSelect');
+            for (const verb in verbs) {
+                const option = document.createElement('option');
+                option.value = verb;
+                option.textContent = verb;
+                verbSelect.appendChild(option);
+            }
+        }
+
+        function confirmSelection() {
+            const verbSelect = document.getElementById('verbSelect');
+            selectedVerbs = Array.from(verbSelect.selectedOptions).map(option => option.value);
+            if (selectedVerbs.length > 0) {
+                document.getElementById('menu').classList.add('hidden');
+                document.getElementById('exercise').classList.remove('hidden');
                 setNewVerb();
-            });
+            } else {
+                alert('Selecteer alstublieft minstens één werkwoord.');
+            }
         }
 
         function setNewVerb() {
-            const verbKeys = Object.keys(verbs);
-            currentVerb = verbKeys[Math.floor(Math.random() * verbKeys.length)];
+            currentVerb = selectedVerbs[Math.floor(Math.random() * selectedVerbs.length)];
             currentTenseIndex = Math.floor(Math.random() * 6);
             const tenses = ["ik", "jij", "hij/zij/het", "wij", "jullie", "zij"];
             document.getElementById('verbPrompt').textContent = `Vervoeg "${currentVerb}" voor "${tenses[currentTenseIndex]}"`;
