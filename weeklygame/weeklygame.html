@@ -8,11 +8,22 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   </head>
     <link rel="stylesheet" href="index.css">
-    <body>
-        <div class="topnav">
-            <a href="/index.html">Home</a>
-            <a class="active" href="weeklygame.html">Wekelijkse Game</a>
-            <a href="/verbuga/verbuga.html">Franse Werkwoorden</a>
-    </body>
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+      <!-- Button to close the overlay navigation -->
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+      <!-- Overlay content -->
+      <div class="overlay-content">
+              <a href="/index.html">Home</a>
+              <a href="/weeklygame/weeklygame.html">Wekelijkse Game</a>
+              <a href="/verbuga/verbuga.html">Franse Werkwoorden</a>
+      </div>
+    
+    </div>
+    
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <span onclick="openNav()"><img src="/images/menu.png"></span>
     <iframe src="https://webglmath.github.io/blumgi-rocket/" frameborder="0" style="width:100%;height:85vh"></iframe>
 </html>
