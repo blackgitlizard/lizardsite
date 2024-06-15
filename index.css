@@ -39,6 +39,11 @@ a.one:link {font-size: 34px;}
   background-color: #333333;
   color: rgb(255, 255, 255);
   text-align: center;
+  font-size: smaller;
+}
+.inline {
+    display: inline;
+    margin: 0;
 }
 
 /* Responsive layout for screens smaller than 600px */
