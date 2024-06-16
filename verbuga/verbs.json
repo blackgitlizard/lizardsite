@@ -53,5 +53,61 @@
         "present": ["prends", "prends", "prend", "prenons", "prenez", "prennent"],
         "passe_compose": ["ai pris", "as pris", "a pris", "avons pris", "avez pris", "ont pris"],
         "futur_proche": ["vais prendre", "vas prendre", "va prendre", "allons prendre", "allez prendre", "vont prendre"]
+    },
+    "manger": {
+        "present": ["mange", "manges", "mange", "mangeons", "mangez", "mangent"],
+        "passe_compose": ["ai mangé", "as mangé", "a mangé", "avons mangé", "avez mangé", "ont mangé"],
+        "futur_proche": ["vais manger", "vas manger", "va manger", "allons manger", "allez manger", "vont manger"]
+    },
+    "finir": {
+        "present": ["finis", "finis", "finit", "finissons", "finissez", "finissent"],
+        "passe_compose": ["ai fini", "as fini", "a fini", "avons fini", "avez fini", "ont fini"],
+        "futur_proche": ["vais finir", "vas finir", "va finir", "allons finir", "allez finir", "vont finir"]
+    },
+    "parler": {
+        "present": ["parle", "parles", "parle", "parlons", "parlez", "parlent"],
+        "passe_compose": ["ai parlé", "as parlé", "a parlé", "avons parlé", "avez parlé", "ont parlé"],
+        "futur_proche": ["vais parler", "vas parler", "va parler", "allons parler", "allez parler", "vont parler"]
+    },
+    "attendre": {
+        "present": ["attends", "attends", "attend", "attendons", "attendez", "attendent"],
+        "passe_compose": ["ai attendu", "as attendu", "a attendu", "avons attendu", "avez attendu", "ont attendu"],
+        "futur_proche": ["vais attendre", "vas attendre", "va attendre", "allons attendre", "allez attendre", "vont attendre"]
+    },
+    "mettre": {
+        "present": ["mets", "mets", "met", "mettons", "mettez", "mettent"],
+        "passe_compose": ["ai mis", "as mis", "a mis", "avons mis", "avez mis", "ont mis"],
+        "futur_proche": ["vais mettre", "vas mettre", "va mettre", "allons mettre", "allez mettre", "vont mettre"]
+    },
+    "sortir": {
+        "present": ["sors", "sors", "sort", "sortons", "sortez", "sortent"],
+        "passe_compose": ["suis sorti(e)", "es sorti(e)", "est sorti(e)", "sommes sortis", "êtes sortis", "sont sortis"],
+        "futur_proche": ["vais sortir", "vas sortir", "va sortir", "allons sortir", "allez sortir", "vont sortir"]
+    },
+    "partir": {
+        "present": ["pars", "pars", "part", "partons", "partez", "partent"],
+        "passe_compose": ["suis parti(e)", "es parti(e)", "est parti(e)", "sommes partis", "êtes partis", "sont partis"],
+        "futur_proche": ["vais partir", "vas partir", "va partir", "allons partir", "allez partir", "vont partir"]
+    },
+    "dormir": {
+        "present": ["dors", "dors", "dort", "dormons", "dormez", "dorment"],
+        "passe_compose": ["ai dormi", "as dormi", "a dormi", "avons dormi", "avez dormi", "ont dormi"],
+        "futur_proche": ["vais dormir", "vas dormir", "va dormir", "allons dormir", "allez dormir", "vont dormir"]
+    },
+    "ouvrir": {
+        "present": ["ouvre", "ouvres", "ouvre", "ouvrons", "ouvrez", "ouvrent"],
+        "passe_compose": ["ai ouvert", "as ouvert", "a ouvert", "avons ouvert", "avez ouvert", "ont ouvert"],
+        "futur_proche": ["vais ouvrir", "vas ouvrir", "va ouvrir", "allons ouvrir", "allez ouvrir", "vont ouvrir"]
+    },
+    "écrire": {
+        "present": ["écris", "écris", "écrit", "écrivons", "écrivez", "écrivent"],
+        "passe_compose": ["ai écrit", "as écrit", "a écrit", "avons écrit", "avez écrit", "ont écrit"],
+        "futur_proche": ["vais écrire", "vas écrire", "va écrire", "allons écrire", "allez écrire", "vont écrire"]
+    },
+    "lire": {
+        "present": ["lis", "lis", "lit", "lisons", "lisez", "lisent"],
+        "passe_compose": ["ai lu", "as lu", "a lu", "avons lu", "avez lu", "ont lu"],
+        "futur_proche": ["vais lire", "vas lire", "va lire", "allons lire", "allez lire", "vont lire"]
     }
+    
 }
