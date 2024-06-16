@@ -27,7 +27,7 @@ a.one:link {color: #ffffff;}
 
 /* The sidepanel menu */
 .sidepanel {
-  height: 250px; /* Specify a height */
+  height: 200px; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
