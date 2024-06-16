@@ -12,9 +12,7 @@ body{
   font-family: montserrat;
 }
 
-.one a:link {
-  color: white;
-}
+a.one:link {color: #ffffff;}
 
 /*footer css*/
 .footer {
