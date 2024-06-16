@@ -12,6 +12,10 @@ body{
   font-family: montserrat;
 }
 
+.one a:link {
+  color: white;
+}
+
 /*footer css*/
 .footer {
   position: fixed;
