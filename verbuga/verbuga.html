@@ -1,20 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
-    <script type="text/javascript" src="https://cookieconsent.popupsmart.com/src/js/popper.js"></script><script> window.start.init({Palette:"palette5",Mode:"floating left",Theme:"edgeless",LinkText:" Learn More!",Time:"5",})</script>
-    <head>
-        <link rel="stylesheet" href="/index.css">
-        <script src="/index.js"></script>
-        <title>blacklizard</title>
-        <link rel="icon" type="image/png" href="/images/favicon.png">
-    </head>
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/index.html">Home</a>
-        <a href="/weeklygame/weeklygame.html">Weekly Game</a>
-        <a href="/verbuga/verbuga.html">Franse Werkwoorden</a>
-      </div>
-      
-      <button class="openbtn" onclick="openNav()">&#9776;</button>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,28 +9,29 @@
 <body>
     <div class="container">
         <h1>Leer Franse Werkwoorden</h1>
-        <div id="menu">
-            <div id="verbSelect" class="select-box">
+        <div class="select-container">
+            <div class="select-box" id="verbSelect">
                 <h2>Selecteer Werkwoorden</h2>
-                <!-- Werkwoord checkboxes worden dynamisch geladen -->
+                <!-- Voorbeeld werkwoorden, voeg meer toe aan verbs.json -->
+                <label><input type="checkbox" value="parler"> parler</label>
+                <label><input type="checkbox" value="finir"> finir</label>
+                <label><input type="checkbox" value="vendre"> vendre</label>
             </div>
-            <div id="tenseSelect" class="select-box">
+            <div class="select-box" id="tenseSelect">
                 <h2>Selecteer Tijden</h2>
-                <!-- Tijd checkboxes -->
-                <label><input type="checkbox" value="present"> Present</label>
-                <label><input type="checkbox" value="passe_compose"> Passé Composé</label>
-                <label><input type="checkbox" value="futur_proche"> Futur Proche</label>
+                <label><input type="checkbox" value="present"> Présent</label>
+                <label><input type="checkbox" value="passe-compose"> Passé Composé</label>
+                <label><input type="checkbox" value="futur-proche"> Futur Proche</label>
             </div>
-            <button onclick="confirmSelection()">Start Oefening</button>
         </div>
-        <div id="exercise" class="exercise-container hidden">
+        <button onclick="startExercise()">Start Oefening</button>
+        <div class="exercise-container hidden" id="exerciseContainer">
             <div class="prompt">
-                <div id="verbPrompt" class="prompt-item">Werkwoord</div>
-                <div id="tensePrompt" class="prompt-item">Tijd</div>
+                <div class="prompt-item" id="verbPrompt"></div>
+                <div class="prompt-item" id="tensePrompt"></div>
             </div>
-            <input type="text" id="userInput" placeholder="Typ de vervoeging">
-            <button onclick="checkAnswer()">Controleer Antwoord</button>
-            <p id="result" class="result"></p>
+            <input type="text" id="userInput" placeholder="Typ de juiste vorm">
+            <div class="result" id="result"></div>
         </div>
     </div>
     <script src="script.js"></script>
