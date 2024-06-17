@@ -20,6 +20,12 @@ h1 {
     color: #333;
 }
 
+.select-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .select-box {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -28,6 +34,7 @@ h1 {
     margin-bottom: 20px;
     max-height: 150px; /* Max hoogte voor scrollen */
     overflow-y: auto; /* Scrollen toevoegen */
+    flex: 1; /* Zorgt ervoor dat beide selectievakjes gelijkmatig de beschikbare ruimte innemen */
 }
 
 .select-box h2 {
@@ -116,6 +123,10 @@ button:hover {
 @media (max-width: 600px) {
     .container {
         padding: 10px;
+    }
+
+    .select-container {
+        flex-direction: column;
     }
 
     .select-box {
