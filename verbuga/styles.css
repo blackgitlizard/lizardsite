@@ -49,6 +49,11 @@ h1 {
     white-space: nowrap; /* Voorkomt dat lange werkwoorden doorlopen */
 }
 
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 button {
     background-color: #4CAF50;
     color: white;
